@@ -10,14 +10,13 @@ const SearchInput = ({ onSearch }) => {
   };
 
   return (
-    <div>
+    
       <input
-        type="text"
-        name="searchingCat"
+      className="SearchInput"
         placeholder="고양이를 검색해보세요!"
         onKeyDown={pressEnter}
       />
-    </div>
+   
   );
 };
 
