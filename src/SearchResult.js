@@ -1,26 +1,24 @@
 import React from "react";
 import "./App.css";
 
-
-const SearchResult = ({ catData, clickCatImg}) => {
+const SearchResult = ({ images, clickImage }) => {
   // console.log(clickCatImg)
-  const mouseLeftClick = (e) => {
-    console.log(catData)
-    clickCatImg(e.target)
-  }
+  const mouseLeftClick = e => {
+    clickImage(e.target);
+  };
   const resultViews = [];
-  if (catData !== null) {
-    catData.forEach((ele, idx) => {
+  if (images !== null && images.length !== 0) {
+    images.forEach((ele, idx) => {
       resultViews.push(
         <div className="item" key={idx} onClick={mouseLeftClick}>
           <img src={ele.url} alt={ele.id} />
         </div>
       );
     });
-
     return resultViews;
   } else {
-    return ;
+    // console.log(catData);
+    return <div>No Result...</div>;
   }
 };
 

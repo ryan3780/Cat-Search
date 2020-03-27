@@ -1,6 +1,3 @@
-
-
-
 html {
   box-sizing: border-box;
 }
@@ -19,6 +16,11 @@ body * {
   margin: 1.5em auto;
   max-width: 1200px;
   column-gap: 1.5em;
+}
+
+.RandomBtn {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .SearchResult {
@@ -79,5 +81,3 @@ body * {
 .ImageInfo .content-wrapper img {
   width: 100%;
 }
-
-
