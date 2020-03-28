@@ -7,7 +7,7 @@ const SearchResult = ({ images, clickImage }) => {
     clickImage(e.target);
   };
   const resultViews = [];
-  if (images !== null && images.length !== 0) {
+  if (images.length !== 0) {
     images.forEach((ele, idx) => {
       resultViews.push(
         <div className="item" key={idx} onClick={mouseLeftClick}>

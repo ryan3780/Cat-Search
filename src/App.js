@@ -4,14 +4,16 @@ import "./App.css";
 import SearchInput from "./SearchInput";
 import SearchResult from "./SearchResult";
 import ImageInfo from "./ImageInfo";
+import LoadingIndicator from "./LoadingIndicator";
 
 function App() {
   const DS =
-    "https://api.thecatapi.com/v1/images/search?limit=10&page=1&order=DESC";
-  const [loading, setLoading] = React.useState(false);
-  const [images, setData] = React.useState([]);
+    "https://api.thecatapi.com/v1/images/search?limit=30&page=1&order=DESC";
+  // 처음에 로딩에 true가 아니면 로딩 중 표시가 계속 뜨기 때문에 처음 state가 true
+  const [loading, setLoading] = React.useState(true);
+  const [images, setImages] = React.useState([]);
   const [target, setTarget] = React.useState(null);
-  // console.log(data);
+  // console.log(images);
 
   const shrinkImage = () => {
     setTarget(null);
@@ -28,6 +30,7 @@ function App() {
     if (word === "") {
       return alert("검색어를 입력해주세요");
     }
+    progress()
     fetch(`${DS}`)
       .then(response => response.json())
       .then(data => {
@@ -43,7 +46,9 @@ function App() {
             return null;
           }
         });
-        setData(filteredCats);
+        setLoading(false)
+        setImages(filteredCats);
+        
       })
       .catch(error => console.error(error));
   };
@@ -54,13 +59,27 @@ function App() {
   };
 
   const getRandomCats = () => {
+    progress()
     fetch(`${DS}`)
       .then(response => response.json())
       .then(data => {
-        setData(data);
+        setLoading(false)
+        setImages(data);
       })
       .catch(error => console.error(error));
   };
+//  console.log(loading)
+  // 1초 동안 로딩 중을 보여주는 함수를 멈추게 하는 기능
+  useEffect(()=>{
+   clearTimeout(progress)
+  },[loading])
+  
+  // 1초 동안 loading에 true를 줘서 로딩을 하는 것처럼 보이게 하는 기능
+  const progress = () =>{
+    setTimeout(()=>{
+      setLoading(true)
+    }, 1000)
+  }
 
   return (
     <div id="App">
@@ -69,7 +88,7 @@ function App() {
         Random Cats
       </button>
       <div className="SearchResult">
-        <SearchResult images={images} clickImage={onClickImage} />
+        {loading ? <SearchResult images={images} clickImage={onClickImage} /> : <LoadingIndicator />}
       </div>
       <ImageInfo
         escPress={escPress}
