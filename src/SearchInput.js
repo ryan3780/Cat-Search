@@ -7,9 +7,9 @@ const SearchInput = ({ onSearch }) => {
   const [isEditing, setEditing] = useState(false);
   // 최근 검색한 검색어를 저장하는 배열
   const [recentSearchedText, setRecentSearchedText] = React.useState([]);
-
   const inputRef = useRef(null);
 
+  // input에 focus주는 기능
   useEffect(() => {
     setEditing(true);
     if (isEditing) {
@@ -27,6 +27,7 @@ const SearchInput = ({ onSearch }) => {
       // Enter를 친 후에 검색어를 배열에 저장하는 기능
       if (e.target.value !== "") {
         recentSearchedText.push(catFilterText);
+        // console.log(recentSearchedText);
         //반복문으로 각각의 key:value로 검색어를 저장하는 기능
         for (let ele in recentSearchedText) {
           localStorage.setItem(`list${ele}`, recentSearchedText[ele]);
@@ -42,6 +43,7 @@ const SearchInput = ({ onSearch }) => {
       // 값을 입력한 후 'Enter'치고 나서, input box를 비워준다
       setCatFilterText("");
     }
+    setRecentSearchedText([...recentSearchedText]);
   };
 
   // 최근 검색어로 고양이 이미지를 서칭한다
