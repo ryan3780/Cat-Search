@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
+import { Row, Col, Button } from "react-bootstrap";
 
 const SearchInput = ({ onSearch }) => {
   // input 검색을 위한 state 여기에 있는 것이 좋을까, App.js에서 관리를 해야 하는게 좋을까?
@@ -65,26 +66,32 @@ const SearchInput = ({ onSearch }) => {
       return null;
     } else {
       return (
-        <div key={idx}>
-          <button onClick={clickSearchedText} value={ele}>
+        <Col md key={idx} className="recentText">
+          <Button
+            variant="outline-info"
+            onClick={clickSearchedText}
+            value={ele}
+          >
             {ele}
-          </button>
-        </div>
+          </Button>
+        </Col>
       );
     }
   });
 
   return (
     <>
-      <input
-        ref={inputRef}
-        className="SearchInput"
-        placeholder="고양이를 검색해보세요!"
-        onKeyPress={pressEnter}
-        onChange={pressEnter}
-        value={catFilterText}
-      />
-      {views}
+      <Row>
+        <input
+          ref={inputRef}
+          className="SearchInput"
+          placeholder="고양이를 검색해보세요!"
+          onKeyPress={pressEnter}
+          onChange={pressEnter}
+          value={catFilterText}
+        />
+        {views}
+      </Row>
     </>
   );
 };

@@ -6,6 +6,8 @@ const SearchResult = ({ images, clickImage }) => {
   const mouseLeftClick = e => {
     clickImage(e.target);
   };
+
+  // event delegation이 된건가??
   const resultViews = [];
   if (images.length !== 0) {
     images.forEach((ele, idx) => {

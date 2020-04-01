@@ -17,6 +17,11 @@ body * {
   max-width: 1200px;
   column-gap: 1.5em;
 }
+.recentText {
+  margin-top: 20px;
+  /* margin-right: 20px; */
+  margin-bottom: 20px;
+}
 
 .RandomBtn {
   margin-top: 20px;

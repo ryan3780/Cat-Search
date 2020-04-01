@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-
+import { Container, Button } from "react-bootstrap";
 import SearchInput from "./SearchInput";
 import SearchResult from "./SearchResult";
 import ImageInfo from "./ImageInfo";
@@ -42,6 +42,7 @@ function App() {
   // 1초 동안 로딩 중을 보여주는 함수를 멈추게 하는 기능
   useEffect(() => {
     clearTimeout(progress);
+    setMoreImages([]);
   }, [loading]);
 
   // 1초 동안 loading에 true를 줘서 로딩을 하는 것처럼 보이게 하는 기능
@@ -76,7 +77,7 @@ function App() {
     if (word === "") {
       return alert("검색어를 입력해주세요");
     } else {
-      console.log(word);
+      // console.log(word);
       progress();
       request();
     }
@@ -110,7 +111,7 @@ function App() {
       });
       setLoading(false);
       setImages(filteredCats);
-      console.log(result);
+      // console.log(result);
       return result;
     } catch (e) {
       console.warn(e);
@@ -135,23 +136,30 @@ function App() {
 
   return (
     <div id="App">
-      <SearchInput onSearch={onSearch} />
-      <button className="RandomBtn" onClick={getRandomCats}>
-        Random Cats
-      </button>
-      <div className="SearchResult">
-        {loading ? (
-          <SearchResult images={images} clickImage={onClickImage} />
-        ) : (
-          <LoadingIndicator />
-        )}
-        {loadMoreImg}
-      </div>
-      <ImageInfo
-        escPress={escPress}
-        target={target}
-        shrinkImage={shrinkImage}
-      />
+      <Container fluid>
+        <SearchInput onSearch={onSearch} />
+        <Button
+          variant="outline-warning"
+          size="lg"
+          className="RandomBtn"
+          onClick={getRandomCats}
+        >
+          Random Cats
+        </Button>
+        <div className="SearchResult">
+          {loading ? (
+            <SearchResult images={images} clickImage={onClickImage} />
+          ) : (
+            <LoadingIndicator />
+          )}
+          {loadMoreImg}
+        </div>
+        <ImageInfo
+          escPress={escPress}
+          target={target}
+          shrinkImage={shrinkImage}
+        />
+      </Container>
     </div>
   );
 }
