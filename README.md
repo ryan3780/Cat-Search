@@ -6,6 +6,18 @@
 
 ### 코드 확인 방법  
 
-1. 
+yarn사용 시 : yarn install
+ㄱ. yarn create react-app 원하는 명칭
+ㄴ. cd 원하는 명칭으로 생성된 디렉토리
+ㄷ. yarn add reactstrap react react-dom
+ㄹ. yarn add bootstrap
+ㅁ. yarn start
 
+npm && npx사용 시 : npm install
+
+ㄱ. npm install -g create-react app 원하는 명칭
+ㄴ. cd 원하는 명칭으로 생성된 디렉토리
+ㄷ. npm install --save bootstrap
+ㄹ. npm install --save reactstrap react react-dom
+ㅁ. npm start
 
