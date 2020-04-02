@@ -1,16 +1,19 @@
 import React from "react";
 import "./App.css";
 
-const ImageInfo = ({ escPress, shrinkImage, target }) => {
+const ImageInfo = ({ escPress, shrinkImage, target, test }) => {
+  
+  const style={background : test ? '#000' : `#fff`, color : test ? `#fff` : `#000`}
+
   if (target != null) {
     window.addEventListener("keydown", escPress);
 
     return (
-      <div className="ImageInfo" onKeyDown={escPress}>
-        <div className="content-wrapper">
+      <div className="ImageInfo" onKeyDown={escPress} >
+        <div className="content-wrapper" style={style}>
           <div className="title">
             <span>{target.alt}</span>
-            <div className="close" onClick={shrinkImage}>
+            <div className="close" onClick={shrinkImage} style={style}>
               x
             </div>
           </div>

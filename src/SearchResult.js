@@ -1,5 +1,8 @@
 import React from "react";
+
 import "./App.css";
+
+
 
 const SearchResult = ({ images, clickImage }) => {
   // console.log(clickCatImg)
@@ -20,7 +23,7 @@ const SearchResult = ({ images, clickImage }) => {
     return resultViews;
   } else {
     // console.log(catData);
-    return <div>No Result...</div>;
+    return null
   }
 };
 

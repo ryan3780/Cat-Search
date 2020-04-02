@@ -53,20 +53,21 @@ const SearchInput = ({ onSearch }) => {
     localStorage.setItem("recent", e.target.value);
   };
 
+  // 최신 검색어가 화면에서 맨 왼쪽으로 오게 하기 위해서 만든 객체
   let forViews = {
-    1: localStorage.getItem(`list0`),
-    2: localStorage.getItem(`list1`),
+    5: localStorage.getItem(`list0`),
+    4: localStorage.getItem(`list1`),
     3: localStorage.getItem(`list2`),
-    4: localStorage.getItem(`list3`),
-    5: localStorage.getItem(`list4`)
+    2: localStorage.getItem(`list3`),
+    1: localStorage.getItem(`list4`)
   };
-
+//화면에 최근 검색 결과를 버튼으로 보여주는 기능
   const views = Object.values(forViews).map((ele, idx) => {
     if (ele === null) {
       return null;
     } else {
       return (
-        <Col md key={idx} className="recentText">
+        <Col md={1} key={idx} className="recentText">
           <Button
             variant="outline-info"
             onClick={clickSearchedText}
@@ -82,7 +83,9 @@ const SearchInput = ({ onSearch }) => {
   return (
     <>
       <Row>
+        <Col md={12}>
         <input
+          type='text'
           ref={inputRef}
           className="SearchInput"
           placeholder="고양이를 검색해보세요!"
@@ -90,6 +93,9 @@ const SearchInput = ({ onSearch }) => {
           onChange={pressEnter}
           value={catFilterText}
         />
+        </Col>
+        </Row>
+        <Row id='BtnGroup'>
         {views}
       </Row>
     </>
