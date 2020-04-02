@@ -8,8 +8,7 @@
 <img width="900" alt="스크린샷 2020-04-02 오후 8 36 26" src="https://user-images.githubusercontent.com/45477679/78245006-a6247880-7521-11ea-923f-416c81e17dd4.png">
 <img width="900" alt="스크린샷 2020-04-02 오후 8 33 00" src="https://user-images.githubusercontent.com/45477679/78244827-58a80b80-7521-11ea-8fda-ef99b74e4ed9.png">
 <img width="900" alt="스크린샷 2020-04-02 오후 8 33 13" src="https://user-images.githubusercontent.com/45477679/78244830-5a71cf00-7521-11ea-9c57-7ddf132e94e6.png">
-<img width="900" alt="스크린샷 2020-04-02 오후 8 33 37" src="https://user-images.githubusercontent.com/45477679/78244834-5ba2fc00-7521-11ea-8b85-db74bca74cf4.png">
-<img width="900" alt="스크린샷 2020-04-02 오후 8 33 56" src="https://user-images.githubusercontent.com/45477679/78244837-5c3b9280-7521-11ea-8ec0-310600bc658d.png">
+
 
 ### 코드 확인 방법  
 
