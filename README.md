@@ -6,7 +6,8 @@
 
 ### 코드 확인 방법  
 
-yarn사용 시 : yarn install  
+yarn사용 시 : yarn install   
+
 ㄱ. yarn create react-app 원하는 명칭  
 ㄴ. cd 원하는 명칭으로 생성된 디렉토리  
 ㄷ. yarn add reactstrap react react-dom  
