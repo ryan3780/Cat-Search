@@ -4,6 +4,8 @@
 
 #### 바닐라JS로 된 코드를 ReactJS로 바꾼 코드입니다.  
 
+## 사진  
+
 ### 코드 확인 방법  
 
 yarn사용 시 : yarn install   
@@ -21,4 +23,3 @@ npm && npx사용 시 : npm install
 ㄷ. npm install --save bootstrap  
 ㄹ. npm install --save reactstrap react react-dom  
 ㅁ. npm start  
-
